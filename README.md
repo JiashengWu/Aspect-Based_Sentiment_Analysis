@@ -32,21 +32,16 @@ by **Vanilla Deep** (*Jianheng Hou*, *Zheng Cao*, *Jiasheng Wu*, *Yuang Liang*)
 
 ## Visualization
 
-<center>
+<p align="center">
+  <img src="fig/Aspect-Based_Sentiment_Analysis_for_Top_10_Disease_Categories.png" />
+  <em>Aspect-Based Sentiment Analysis for Top 10 Disease Categories</em>
+</p>
 
-![Aspect-Based Sentiment Analysis for Top 10 Disease Categories](fig/Aspect-Based_Sentiment_Analysis_for_Top_10_Disease_Categories.png)
+<p align="center">
+  <img src="fig/Sentiment_Statistics_by_Aspects_across_5_Common_Topics_in_Health_Care.png" />
+  <em>Sentiment Statistics by Aspects across 5 Common Topics in Health Care</em>
+</p>
 
-*Aspect-Based Sentiment Analysis for Top 10 Disease Categories*
-
-</center>
-
-<center>
-
-![Sentiment Statistics by Aspects across 5 Common Topics in Health Care](fig/Sentiment_Statistics_by_Aspects_across_5_Common_Topics_in_Health_Care.png)
-
-*Sentiment Statistics by Aspects across 5 Common Topics in Health Care*
-
-</center>
 ## Summary
 
 ## References
