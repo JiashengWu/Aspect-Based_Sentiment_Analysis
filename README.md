@@ -2,7 +2,7 @@
 
 by **Vanilla Deep** (*Jianheng Hou*, *Zheng Cao*, *Jiasheng Wu*, *Yuang Liang*)
 
-![Aspect-Based Sentiment Analysis for Top 10 Disease Categories](./fig/Aspect-Based Sentiment Analysis for Top 10 Disease Categories.png)
+![Aspect-Based Sentiment Analysis for Top 10 Disease Categories](fig/Aspect-Based_Sentiment_Analysis_for_Top_10_Disease_Categories.png)
 *Aspect-Based Sentiment Analysis for Top 10 Disease Categories*
 
 ## Introduction
