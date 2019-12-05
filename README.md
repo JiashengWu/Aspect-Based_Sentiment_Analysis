@@ -13,7 +13,7 @@ As known to all, data science and analysis has brought innovation to the financi
 Different from traditional sentiment analysis, we analyze sentiment by different issue categories which are predicted by another model. 
 
 <p align="center">
-  <img src="fig/Problem_Formulation.png" />
+  <img src="fig/Problem_Formulation.png" style="max-height: 300px" />
   <em>Problem Formulation</em>
 </p>
 
@@ -26,7 +26,7 @@ The first challenge comes from the annotation. We collect data without labels fr
 ## Pipeline
 
 <p align="center">
-  <img src="fig/Pipeline.png" />
+  <img src="fig/Pipeline.png" style="max-height: 300px" />
   <em>Pipeline</em>
 </p>
 
@@ -37,7 +37,7 @@ The diagram above shows the whole pipeline of our end-to-end project, which incl
 We used Scrapy to collect around 1.3 million patients’ narratives from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. as our dataset. In order to annotate our data as quickly and accurately as possible, we designed a survey and sent them out to collect labels on Amazon Mechanical Turk. We embedded a sample of size 5,000 that annotated by our own in the survey with 50,000 posts we sent out to check the performance of workers. 
 
 <p align="center">
-  <img src="fig/Amazon_Mechanical_Turk.png" />
+  <img src="fig/Amazon_Mechanical_Turk.png" style="max-height: 300px" />
   <em>Annotation using Survey on Amazon Mechanical Turk</em>
 </p>
 
@@ -46,7 +46,7 @@ Raw texts always contain wrong spelling, redundant punctuations, meaningless inf
 Features are important to both non-deep learning models and deep learning models. We use CLAMP toolkit to extract medical entities and relations in free text as features in non-deep learning models.
 
 <p align="center">
-  <img src="fig/CLAMP.png" />
+  <img src="fig/CLAMP.png" style="max-height: 400px" />
   <em>Entities and Relations Extraction using CLAMP</em>
 </p>
 
@@ -82,7 +82,7 @@ We built a ensembled logistic regression and a neural network with three linear 
 After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. Since they caught different things as shown in the accuracy of all data and the accuracy of all data exclude data without any target labels, I ensembled them together to output the best performance in the end (avg f1: 0.571).
 
 <p align="center">
-  <img src="fig/Evaluation.png" />
+  <img src="fig/Evaluation.png" style="max-height: 300px" />
   <em>Evaluation of Models</em>
 </p>
 
