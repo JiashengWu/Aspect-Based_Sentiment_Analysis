@@ -45,8 +45,8 @@ The first challenge comes from the annotation. We collect data without labels fr
 </p>
 
 <p align="center">
-  <img src="fig/Sentiment_Statistics_by_Aspects_across_5_Common_Topics_in_Health_Care.png" />
-  <em>Sentiment Statistics by Aspects across 5 Common Topics in Health Care</em>
+  <img src="fig/Sentiment_Statistics_by_Aspects_across_10_Common_Topics_in_Health_Care.png" />
+  <em>Sentiment Statistics by Aspects across 10 Common Topics in Health Care</em>
 </p>
 
 ## Summary
