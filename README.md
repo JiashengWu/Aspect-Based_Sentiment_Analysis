@@ -30,17 +30,61 @@ The first challenge comes from the annotation. We collect data without labels fr
   <em>Pipeline</em>
 </p>
 
+The diagram above shows the whole pipeline of our end-to-end project, which includes data preparation, model training, visualization, and analysis. After crawling raw data (patient’s narrative posts) from the forum, we stored data in Amazon S3 and then followed by text processing using Spark. As our models are supervised based, we need to collect ground-truth label of the data, so we collect them through an online service, Amazon Mechanical Turk.  Entity recognition and relation recognition was done for feature engineering then. After generating and finalizing training dataset, models were built using deep learning frameworks: Keras and Pytorch. The model with the best performance was used to generate prediction results for the rest of all data other than training dataset, from which we got a list of meaningful and insightful insights via visualization and statistical analysis.
+
 ## Data Preparation
+
+We used Scrapy to collect around 1.3 million patients’ narratives from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. as our dataset. In order to annotate our data as quickly and accurately as possible, we designed a survey and sent them out to collect labels on Amazon Mechanical Turk. We embedded a sample of size 5,000 that annotated by our own in the survey with 50,000 posts we sent out to check the performance of workers. 
+
+<p align="center">
+  <img src="fig/Amazon_Mechanical_Turk.png" />
+  <em>Annotation using Survey on Amazon Mechanical Turk</em>
+</p>
+
+Raw texts always contain wrong spelling, redundant punctuations, meaningless information. We filtered punctuations, extended contractions and abbreviations via dictionaries, parsed part of speech, made words lowercase, corrected spelling, and so on. All of these methods are beneficial to the performance of our models.
+
+Features are important to both non-deep learning models and deep learning models. We use CLAMP toolkit to extract medical entities and relations in free text as features in non-deep learning models.
+
+<p align="center">
+  <img src="fig/CLAMP.png" />
+  <em>Entities and Relations Extraction using CLAMP</em>
+</p>
 
 ## Model Training
 
-### Pooled RNN
+We built a ensembled logistic regression and a neural network with three linear layers as the baseline of the project, and spent more time on 3 different types of deep learning models as below:
 
-### Pooled RNN with TextCNN
+<table>
+  <tr>
+    <td style="background: none">
+      <img src="fig/Model_1.jpeg" />
+    </td>
+    <td>
+      <img src="fig/Model_2.jpeg" />
+    </td>
+    <td>
+      <img src="fig/Model_3.png" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <em>Pooled RNN</em>
+    </td>
+    <td align="center">
+      <em>Pooled RNN with TextCNN</em>
+    </td>
+    <td align="center">
+      <em>BERT</em>
+    </td>
+  </tr>
+</table>
 
-### BERT
+After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. Since they caught different things as shown in the accuracy of all data and the accuracy of all data exclude data without any target labels, I ensembled them together to output the best performance in the end (avg f1: 0.571).
 
-### Assembled Model
+<p align="center">
+  <img src="fig/Evaluation.png" />
+  <em>Evaluation of Models</em>
+</p>
 
 ## Visualization
 
