@@ -1,4 +1,4 @@
-# Aspect-Based Sentiment Analysis for Patients' Narratives
+# Aspect-Based Sentiment Analysis for Patient's Narrative
 
 by **Vanilla Deep** (*Jianheng Hou*, *Zheng Cao*, *Jiasheng Wu*, *Yuang Liang*)
 
