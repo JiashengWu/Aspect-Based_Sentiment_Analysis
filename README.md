@@ -19,11 +19,6 @@ Different from traditional sentiment analysis, we analyze sentiment by different
 
 Given each post of patient’s narrative, multi-label classification predicts what types of issues this post mentions. We defined 5 types of issues in healthcare I are interested. Then sentiment classification model predicts the sentiment of the post. We defined 2 different levels of sentiment, i.e. 1. Non-negative; 2. Negative. By this way, it is easier to know the sentiment distribution of tons of posts from different aspects that we defined.
 
-<p align="center">
-  <img src="fig/Code_of_Label_for_Ground-Truth.png" style="max-height: 400px" />
-  <em>Code of Label for Ground-Truth</em>
-</p>
-
 ### Challenges
 
 The first challenge comes from the annotation. We collect data without labels from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. We trained data with ground truth labeled by annotators in the market, so the performance of our model was limited to the quality of this data we collected. The second challenge is high imbalance of the dataset we created, in which the data from the majority class occupies 87% of all. The third challenge is that multi-label classification made our models hard to train, because insufficient minority data might not be learnt by models and the choosing of metrics for loss function and evaluation is a trick during training stage. To generate readable and intuitive visualization based on the output of models and to extract actionable insights from it is the last challenging point.
@@ -39,11 +34,11 @@ The diagram above shows the whole pipeline of our end-to-end project, which incl
 
 ## Data Preparation
 
-We used Scrapy to collect around 1.3 million patients’ narratives from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. as our dataset. In order to annotate our data as quickly and accurately as possible, we designed a survey and sent them out to collect labels on Amazon Mechanical Turk. We embedded a sample of size 5,000 that annotated by our own in the survey with 50,000 posts we sent out to check the performance of workers. 
+We used Scrapy to collect around 1.3 million patients’ narratives from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. as our dataset. As it is a supervised learning task, we coded all labels we think are important in terms of investment perspective on our own, see table below. In order to annotate our data as quickly and accurately as possible, we designed a survey and sent them out to collect labels on Amazon Mechanical Turk. We embedded a sample of size 5,000 that annotated by our own in the survey with 50,000 posts we sent out to check the performance of workers.
 
 <p align="center">
-  <img src="fig/Amazon_Mechanical_Turk.png" style="max-height: 300px" />
-  <em>Annotation using Survey on Amazon Mechanical Turk</em>
+  <img src="fig/Code_of_Label_for_Ground-Truth.png" style="max-height: 400px" />
+  <em>Code of Label for Ground-Truth</em>
 </p>
 
 Raw texts always contain wrong spelling, redundant punctuations, meaningless information. We filtered punctuations, extended contractions and abbreviations via dictionaries, parsed part of speech, made words lowercase, corrected spelling, and so on. All of these methods are beneficial to the performance of our models.
@@ -59,6 +54,9 @@ Features are important to both non-deep learning models and deep learning models
 
 We tried three different kinds of word embeddings: `FastText.300d` embedding (trained by us on the dataset) and other two popular pre-trained word embedding, `glove.840B.300d` and `glove.twitter.27B`. It turned out our FastText embedding led to a better performance of models and we ascribed this to more domain-oriented clinical terminologies in the corpus. Below is the T-SNE visualization of the post embedding across 10 common disease topics. We do see some clusters, while the overall clustering effect is not as great as we expected due to noisy post or general discussions.
 
+<p>
+  <em>(The following resource may take some time to be loaded... or <a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>)</em>
+</p>
 <iframe src="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html" width="1016px" height="766px">
   <p align="center">
     <img src="fig/Top_10_Disease_Categories.png" style="max-height: 400px" />
@@ -110,7 +108,7 @@ We generated a series of visualization diagrams to provide both visual and stati
 Below is a diagram where semantic meaning of posts colored by sentiment across 10 common diseases are represented as points on each sub-diagram. Not only can readers get a sense of how different topics distribute in semantic space, but also readers know the sentiment distribution of each disease so to compare among them.
 
 <p align="center">
-  <img src="fig/Aspect-Based_Sentiment_Analysis_for_Top_10_Disease_Categories.png" />
+  <img src="fig/Aspect-Based_Sentiment_Analysis_for_10_Common_Disease_Categories.png" />
   <em>Aspect-Based Sentiment Analysis for Top 10 Disease Categories</em>
 </p>
 
