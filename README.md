@@ -54,7 +54,6 @@ Features are important to both non-deep learning models and deep learning models
 
 We tried three different kinds of word embeddings: `FastText.300d` embedding (trained on this dataset) and other two popular pre-trained word embeddings, `glove.840B.300d` and `glove.twitter.27B`. It turned out our FastText embedding led to a better performance of models and we ascribed this to more domain-oriented clinical terminologies in the corpus. Below is the T-SNE visualization of the post embedding across 10 common disease topics. We do see some clusters, while the overall clustering effect was not as great as we expected due to noisy posts or general discussions.
 
-<!--
 <p>
   <em>(The following resource may take some time to be loaded... or&nbsp;<a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>)</em>
 </p>
@@ -67,12 +66,13 @@ We tried three different kinds of word embeddings: `FastText.300d` embedding (tr
 <p align="center">
   <em>T-SNE Embedding of Top 10 Disease Categories</em>
 </p>
--->
 
+<!--
 <p align="center">
     <img src="fig/Top_10_Disease_Categories.png" style="max-height: 400px" />
     <em>T-SNE Embedding of Top 10 Disease Categories [<a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>]</em>
 </p>
+-->
 
 We built an ensembled logistic regression and a neural network with three linear layers as the baseline following works and spent more time on 3 different types of deep learning models as below:
 
