@@ -116,7 +116,7 @@ Below is a diagram where semantic meaning of posts colored by sentiment across 1
 
 <p align="center">
   <img src="fig/Aspect-Based_Sentiment_Analysis_for_10_Common_Disease_Categories.png" />
-  <em>Aspect-Based Sentiment Analysis for Top 10 Disease Categories</em>
+  <em>Aspect-Based Sentiment Analysis for 10 Common Disease Categories</em>
 </p>
 
 Another fancy diagram is to reveal the sentiment of individual disease topic posts on specific aspect in a statistical perspective.
