@@ -1,3 +1,5 @@
+[[repo](https://github.com/JianhengHou/silent-suffering)] [[report](http://JiashengWu.github.io/Aspect-Based_Sentiment_Analysis/)] [[pdf](https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/raw/master/Vanilla_Deep.pdf)]
+
 # Aspect-Based Sentiment Analysis for Patient's Narrative
 
 *by* **Vanilla Deep** ( Jianheng Hou, Zheng Cao, Jiasheng Wu, Yuang Liang )
