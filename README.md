@@ -6,7 +6,7 @@
 
 ### Background
 
-As known to all, data science and analysis has brought innovation to the financial investment industry in recent years. The idea of this project came from venture capital field: partners in firm want to leverage data science to extract insights hiding in the data on healthcare field. This is an innovative pipeline to dig out and monitor patient’s suffering, or say, issues in healthcare so to support investment strategy of venture capital (VC) firms.  This is a typical end-to-end Text Mining Project. Aspect-based sentiment analysis, as the main part of the project, is used to analyze the sentiment of patient’s narrative with different aspects we defined.
+As known to all, data science and analysis has brought innovation to the financial investment industry in recent years. The idea of this project came from venture capital (VC) field: partners in a firm wanted to leverage data science to extract insights hiding in the data on healthcare field. This is an innovative pipeline to dig out and monitor patient’s suffering, or say, issues in healthcare so to support investment decisions and strategy of VC firms. Moreover, this is a typical end-to-end Text Mining Project. Aspect-based sentiment analysis, as the main part of the project, was used to analyze the sentiment of patient’s narrative with different aspects we defined.
 
 ### Problem Statement
 
@@ -21,7 +21,7 @@ Given each post of patient’s narrative, multi-label classification predicts wh
 
 ### Challenges
 
-The first challenge comes from the annotation. We collect data without labels from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. We trained data with ground truth labeled by annotators in the market, so the performance of our model was limited to the quality of this data we collected. The second challenge is high imbalance of the dataset we created, in which the data from the majority class occupies 87% of all. The third challenge is that multi-label classification made our models hard to train, because insufficient minority data might not be learnt by models and the choosing of metrics for loss function and evaluation is a trick during training stage. To generate readable and intuitive visualization based on the output of models and to extract actionable insights from it is the last challenging point.
+The first challenge comes from the annotation. We collect data without labels from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. We trained data with ground truth labeled by annotators in the market, so the performance of our model was limited to the quality of this data we collected. The second challenge is the high imbalance of the dataset we created, in which the data from the majority class occupies 87% of the whole data. Then, multi-label classification made our models hard to train, because insufficient minority data might not be learnt by models and the choosing of metrics for loss function and evaluation is a trick during training stage. To generate readable and intuitive visualization based on the output of models and to extract actionable insights from it is another challenge we faced.
 
 ## Pipeline
 
@@ -52,10 +52,11 @@ Features are important to both non-deep learning models and deep learning models
 
 ## Model Training
 
-We tried three different kinds of word embeddings: `FastText.300d` embedding (trained by us on the dataset) and other two popular pre-trained word embedding, `glove.840B.300d` and `glove.twitter.27B`. It turned out our FastText embedding led to a better performance of models and we ascribed this to more domain-oriented clinical terminologies in the corpus. Below is the T-SNE visualization of the post embedding across 10 common disease topics. We do see some clusters, while the overall clustering effect is not as great as we expected due to noisy post or general discussions.
+We tried three different kinds of word embeddings: `FastText.300d` embedding (trained on this dataset) and other two popular pre-trained word embeddings, `glove.840B.300d` and `glove.twitter.27B`. It turned out our FastText embedding led to a better performance of models and we ascribed this to more domain-oriented clinical terminologies in the corpus. Below is the T-SNE visualization of the post embedding across 10 common disease topics. We do see some clusters, while the overall clustering effect was not as great as we expected due to noisy posts or general discussions.
 
+<!--
 <p>
-  <em>(The following resource may take some time to be loaded... or <a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>)</em>
+  <em>(The following resource may take some time to be loaded... or&nbsp;<a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>)</em>
 </p>
 <iframe src="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html" width="1016px" height="766px">
   <p align="center">
@@ -66,8 +67,14 @@ We tried three different kinds of word embeddings: `FastText.300d` embedding (tr
 <p align="center">
   <em>T-SNE Embedding of Top 10 Disease Categories</em>
 </p>
+-->
 
-We built a ensembled logistic regression and a neural network with three linear layers as the baseline of the project, and spent more time on 3 different types of deep learning models as below:
+<p align="center">
+    <img src="fig/Top_10_Disease_Categories.png" style="max-height: 400px" />
+    <em>T-SNE Embedding of Top 10 Disease Categories [<a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">link</a>]</em>
+</p>
+
+We built an ensembled logistic regression and a neural network with three linear layers as the baseline following works and spent more time on 3 different types of deep learning models as below:
 
 <table>
   <tr>
@@ -94,7 +101,7 @@ We built a ensembled logistic regression and a neural network with three linear 
   </tr>
 </table>
 
-After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. Since they caught different things as shown in the accuracy of all data and the accuracy of all data exclude data without any target labels, I ensembled them together to output the best performance in the end (avg f1: 0.571).
+After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. As they caught different things as shown in the accuracy of all data and the accuracy of all data excluding data without any target labels, we ensembled them together to generate the best model that outerfromed than two below (avg f1: 0.571).
 
 <p align="center">
   <img src="fig/Evaluation.png" style="max-height: 300px" />
