@@ -19,6 +19,11 @@ Different from traditional sentiment analysis, we analyze sentiment by different
 
 Given each post of patient’s narrative, multi-label classification predicts what types of issues this post mentions. We defined 5 types of issues in healthcare I are interested. Then sentiment classification model predicts the sentiment of the post. We defined 2 different levels of sentiment, i.e. 1. Non-negative; 2. Negative. By this way, it is easier to know the sentiment distribution of tons of posts from different aspects that we defined.
 
+<p align="center">
+  <img src="fig/Code_of_Label_for_Ground-Truth.png" style="max-height: 400px" />
+  <em>Code of Label for Ground-Truth</em>
+</p>
+
 ### Challenges
 
 The first challenge comes from the annotation. We collect data without labels from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. We trained data with ground truth labeled by annotators in the market, so the performance of our model was limited to the quality of this data we collected. The second challenge is high imbalance of the dataset we created, in which the data from the majority class occupies 87% of all. The third challenge is that multi-label classification made our models hard to train, because insufficient minority data might not be learnt by models and the choosing of metrics for loss function and evaluation is a trick during training stage. To generate readable and intuitive visualization based on the output of models and to extract actionable insights from it is the last challenging point.
@@ -68,7 +73,7 @@ We built a ensembled logistic regression and a neural network with three linear 
 
 <table>
   <tr>
-    <td style="background: none">
+    <td>
       <img src="fig/Model_1.jpeg" />
     </td>
     <td>
@@ -100,16 +105,120 @@ After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BE
 
 ## Visualization
 
+We generated a series of visualization diagrams to provide both visual and statistical results for gaining insights.
+
+Below is a diagram where semantic meaning of posts colored by sentiment across 10 common diseases are represented as points on each sub-diagram. Not only can readers get a sense of how different topics distribute in semantic space, but also readers know the sentiment distribution of each disease so to compare among them.
+
 <p align="center">
   <img src="fig/Aspect-Based_Sentiment_Analysis_for_Top_10_Disease_Categories.png" />
   <em>Aspect-Based Sentiment Analysis for Top 10 Disease Categories</em>
 </p>
+
+Another fancy diagram is to reveal the sentiment of individual disease topic posts on specific aspect in a statistical perspective.
 
 <p align="center">
   <img src="fig/Sentiment_Statistics_by_Aspects_across_10_Common_Topics_in_Health_Care.png" />
   <em>Sentiment Statistics by Aspects across 10 Common Topics in Health Care</em>
 </p>
 
-## Summary
+However, it is necessary to dive into the actual statistical numbers to identify diseases with specific serious issues we are interested. Diagrams below show the number of negative sentiment posts and the number of posts in both a global view and specific aspect view. We do extract some interesting insights from them.
+
+<table>
+  <tr>
+    <td>
+      <img src="fig/Insight_1.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Negative Sentiment Rate</b>:</p>
+      <p>
+        <ul>
+          <li>Lumbar Puncture</li>
+          <li>Complex Regional Pain Syndrome</li>
+          <li>Topiramate</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="fig/Insight_2.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Bad Trust Issues</b>:</p>
+      <p>
+        <ul>
+          <li>Topiramate</li>
+          <li>Finger and Hand Problems</li>
+          <li>Scabies</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="fig/Insight_3.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Bad Delay Issues</b>:</p>
+      <p>
+        <ul>
+          <li>Alopecia and Hair Disorders</li>
+          <li>Topiramate</li>
+          <li>Pruritus Ani</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="fig/Insight_4.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Bad Cost Issues</b>:</p>
+      <p>
+        <ul>
+          <li>Reactive Arthritis</li>
+          <li>Wegeners Granulomatosis</li>
+          <li>Abscess Non dental</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="fig/Insight_5.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Bad Error Issues</b>:</p>
+      <p>
+        <ul>
+          <li>PTSD Post Traumatic Stress Disorder</li>
+          <li>Quetiapine</li>
+          <li>Paroxetine Hydrochloride</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="fig/Insight_6.png" style="max-width: 500px; max-height: 300px" />
+    </td>
+    <td>
+      <p>Top 3 Topics with <b>Bad Access Issues</b>:</p>
+      <p>
+        <ul>
+          <li>Dementia</li>
+          <li>Globus Sensation</li>
+          <li>Pelvic Pain and Disorders</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+</table>
 
 ## References
+
+1. [Humanizing Customer Complaints using NLP Algorithms](https://towardsdatascience.com/https-medium-com-vishalmorde-humanizing-customer-complaints-using-nlp-algorithms-64a820cef373)
+2. [Deep Learning for Sentiment Analysis: A Survey](https://arxiv.org/pdf/1801.07883.pdf)
+3. [Can I hear you? Sentiment Analysis on Medical Forums](https://pdfs.semanticscholar.org/1d6b/4edca519259c44307617f2b585ca27f1d4ad.pdf)
+
