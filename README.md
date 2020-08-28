@@ -59,7 +59,7 @@ We tried three different kinds of word embeddings: `FastText.300d` embedding (tr
 <p>
   <em>(The following&nbsp;<a href="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html">interactive chart</a>&nbsp;may take some time to be loaded...)</em>
 </p>
-<iframe src="http://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html" width="1016px" height="766px">
+<iframe src="https://htmlpreview.github.io/?https://github.com/JiashengWu/Aspect-Based_Sentiment_Analysis/blob/master/fig/Top_10_Disease_Categories.html" width="1016px" height="766px">
   <p align="center">
     <img src="fig/Top_10_Disease_Categories.png" style="max-height: 400px" />
   </p>
